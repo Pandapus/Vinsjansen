@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "secrets1": {
+      "ignored": "true",
+      "type": "secrets",
+      "dynamicId": null
+    },
+    "mssql1": {
+      "type": "mssql",
+      "connectionId": "AZURE_SQL_CONNECTIONSTRING"
+    }
+  }
+}

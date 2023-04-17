@@ -1,0 +1,38 @@
+{
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:59566",
+      "sslPort": 44388
+    }
+  },
+  "profiles": {
+    "Vinsjansen": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "applicationUrl": "https://localhost:7134;http://localhost:5002",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "AZURE_SQL_CONNECTIONSTRING": "Server=tcp:vinsjansen-server.database.windows.net,1433;Initial Catalog=vinsjansen-database;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;Authentication=Active Directory Default"
+      },
+      "Vinsjansen Prod": {
+        "commandName": "Project",
+        "dotnetRunMessages": true,
+        "launchBrowser": true,
+        "applicationUrl": "https://localhost:7134;http://localhost:5002",
+        "environmentVariables": {
+          "ASPNETCORE_ENVIRONMENT": "Production",
+          "AZURE_SQL_CONNECTIONSTRING": "Server=tcp:vinsjansen-server.database.windows.net,1433;Initial Catalog=vinsjansen-database;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;Authentication=Active Directory Default"
+        }
+      },
+      "IIS Express": {
+        "commandName": "IISExpress",
+        "launchBrowser": true,
+        "environmentVariables": {
+          "ASPNETCORE_ENVIRONMENT": "Development"
+        }
+      }
+    }
+}

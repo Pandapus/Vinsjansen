@@ -1,0 +1,100 @@
+﻿@page "/"
+@using Vinsjansen.Data;
+@using Vinsjansen.Services;
+@inject TicketService ticketService;
+
+<PageTitle>Vinsjansen - Kjøp lodd</PageTitle>
+
+<h1>Kjøp lodd</h1>
+
+Velg dine tall <br/>
+
+@foreach (var ticket in TicketItems)
+{
+	if (!ticket.IsTaken)
+	{
+		<button class="btn-ticket" id="@ticket.Id" @onclick="() => Select(ticket.Id)">@ticket.Id</button>
+	}
+	else
+	{
+		<button class="btn-ticket-taken">@ticket.Id</button>
+	}
+	
+	if (ticket.Id % 10 == 0)
+	{
+		<br/>
+	}
+}
+
+<div class="checkout">
+	<EditForm Model="@ticket" OnSubmit="HandleSubmit">
+		<label for="NameInput">Navn</label>
+		<InputText class="form-control form" id="NameInput" @bind-Value="@ticket.Owner"/>
+		<button type="submit" class="btn-checkout">Bestill</button>
+	</EditForm>
+	<h3>Antall lodd: @selectedTickets</h3>
+	<h3>Pris: @price NOK</h3>
+	<h4>Mine tall:</h4>
+	<h5>@selectedString</h5>
+</div>
+
+@code{
+	List<Ticket> TicketItems { get; set;}
+
+	protected override async Task OnInitializedAsync()
+	{
+		TicketItems = await ticketService.GetAllTickets();
+	}
+
+	List<int> selected = new List<int>();
+
+	int selectedTickets = 0;
+	string selectedString = "";
+	int price = 0;
+
+	Ticket ticket = new Ticket();
+
+	public void HandleSubmit(EditContext editContext)
+	{
+		var newPurchase = (Ticket)editContext.Model;
+		ticketService.BuyTickets(newPurchase.Owner, selected);
+
+		RefreshPage();
+	}
+
+	public void Select(int value)
+	{
+		if (selected.Contains(value))
+		{
+			selectedTickets--;
+			price -= 10;
+			selected.Remove(value);
+			UpdateSelected();
+			return;
+		}
+
+		selectedTickets++;
+		price = selectedTickets * 10;
+
+		selected.Add(value);
+		UpdateSelected();
+	}
+
+	public string UpdateSelected()
+	{
+		selectedString = "";
+		foreach (var item in selected)
+		{
+			selectedString += item + ", ";
+		}
+		return selectedString;
+	}
+
+	[Inject]
+	public NavigationManager NavigationManager { get; set; }
+
+	public void RefreshPage()
+	{
+		NavigationManager.NavigateTo("/", true);
+	}
+}

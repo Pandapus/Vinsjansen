@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "secrets1": {
+      "type": "secrets.user",
+      "dynamicId": null
+    },
+    "mssql1": {
+      "secretStore": "LocalSecretsFile",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/vinsjansen-server/databases/vinsjansen-database",
+      "type": "mssql.azure",
+      "connectionId": "AZURE_SQL_CONNECTIONSTRING"
+    }
+  }
+}

@@ -1,0 +1,67 @@
+﻿.btn-ticket {
+    background-color: #345eeb;
+    border: none;
+    color: white;
+    text-align: center;
+    padding-top: 8px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 24px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 8px;
+    width: 64px;
+    height: 64px;
+}
+
+.btn-ticket-taken {
+    background-color: #6e6e6e;
+    border: none;
+    color: white;
+    text-align: center;
+    padding-top: 8px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 24px;
+    margin: 4px 2px;
+    border-radius: 8px;
+    width: 64px;
+    height: 64px;
+    cursor: not-allowed;
+}
+
+.btn-ticket:hover {
+    background-color: #2a4db7;
+}
+
+.checkout {
+    width: 20rem;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #f7f7f7;
+    padding: 4rem 1rem 1rem 1rem;
+}
+
+.btn-checkout {
+    position: absolute;
+    bottom: 0;
+    background-color: #32a852;
+    width: 100%;
+    color: white;
+    text-align: center;
+    height: 4rem;
+    cursor: pointer;
+    font-size: 24px;
+    padding: 1rem;
+    margin-left: -1rem;
+}
+
+.btn-checkout:hover {
+    background-color: #3bbd2a;
+}
+
+h3 {
+    margin-top: 2rem;
+}
