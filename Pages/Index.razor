@@ -28,14 +28,20 @@ Velg dine tall <br/>
 
 <div class="checkout">
 	<EditForm Model="@ticket" OnSubmit="HandleSubmit">
-		<label for="NameInput">Navn</label>
-		<InputText class="form-control form" id="NameInput" @bind-Value="@ticket.Owner"/>
+		<div class="input-container">
+			<label for="NameInput">Navn</label>
+			<InputText class="form-control form" id="NameInput" @bind-Value="@ticket.Owner" />
+		</div>
+		
 		<button type="submit" class="btn-checkout">Bestill</button>
 	</EditForm>
-	<h3>Antall lodd: @selectedTickets</h3>
-	<h3>Pris: @price NOK</h3>
-	<h4>Mine tall:</h4>
-	<h5>@selectedString</h5>
+
+	<div class="checkout-info">
+		<h3>Antall lodd: @selectedTickets</h3>
+		<h3>Pris: @price NOK</h3>
+		<h4>Mine tall:</h4>
+		<h5>@selectedString</h5>
+	</div>
 </div>
 
 @code{
